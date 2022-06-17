@@ -2,27 +2,16 @@ package com.example.demo_omada.webpages;
 
 import lombok.Getter;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 @Getter
 public class FrontPage extends BasicWebPage {
-
-    @Autowired
-    private WebDriver webDriver;
-
-    @Autowired
-    private WebDriverWait wait;
 
     @Value("${main.url}")
     private String mainUrl;
@@ -45,15 +34,18 @@ public class FrontPage extends BasicWebPage {
     @FindBy(how = How.CSS, using = "#menu-item-731 > div > div > div.mega-menu-nav > ul > li:nth-child(2) > a")
     private WebElement careers;
 
-    public void openPage() {
-        webDriver.get(mainUrl);
-        wait.until(
-                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
-//        ((JavascriptExecutor) webDriver).executeScript("return document.readyState").toString().equals("complete");
+    public void openPageAllowCookies() {
+        driver.get(mainUrl);
+        driver.manage().window().maximize();
+        wait.until(ExpectedConditions.elementToBeClickable(allowCookies));
+        allowCookies.click();
     }
 
-    public void clickAcceptAllCookies() {
-        allowCookies.click();
+
+    public void openPage() {
+        driver.get(mainUrl);
+        wait.until(
+                driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
     }
 
     public void clickProducts() {
@@ -66,17 +58,9 @@ public class FrontPage extends BasicWebPage {
     }
 
     public void clickBottomMenuOmadaIdentityCloudPage() {
-                wait.until(
-                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
-        ((JavascriptExecutor) webDriver).executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
-/*        try {
-            ((JavascriptExecutor) webDriver).executeAsyncScript("arguments[0].scrollIntoView(true);", omadaItentityCloudBottom);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
-
-/*        JavascriptExecutor js = (JavascriptExecutor) webDriver;
-        js.executeScript("arguments[0].scrollIntoView(true);", omadaItentityCloudBottom);*/
+        wait.until(
+                driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
         wait.until(ExpectedConditions.elementToBeClickable(omadaItentityCloudBottom));
         omadaItentityCloudBottom.click();
     }

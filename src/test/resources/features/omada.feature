@@ -23,8 +23,9 @@ Feature: omada feature
   Scenario: Open Omada Careers page and check if 2 peoples information is correct
     Given I Open Omada front page
     When I through the top menu selects Company => Careers
-    And I on Carreers page select Gry Collignon
-    Then I expect the Persons text to be equal with "src/test/resources/validation_texts/GryCollignon.txt"
+    And I on Carreers page select "Gry Collignon"
+    Then I expect the Persons text to be equal with "GryCollignon.txt"
     When I close the person
-    And I on Carreers page select Daria Czajkowska
-    Then I expect the Persons text to be equal with "src/test/resources/validation_texts/DariaCzajkowska.txt"
+    And I on Carreers page select "Daria Czajkowska"
+    Then I expect the Persons text to be equal with "DariaCzajkowska.txt"
+
