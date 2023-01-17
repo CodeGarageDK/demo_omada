@@ -11,7 +11,9 @@ Technologies:
     - JUnit 5
 
 Preconditions:
-    - Java JDK (eg. OpenJDK 17 - https://java.tutorials24x7.com/blog/how-to-install-openjdk-17-on-windows)
+    
+    - Java (eg. OpenJDK 17 - https://java.tutorials24x7.com/blog/how-to-install-openjdk-17-on-windows)
+
     - Maven (https://maven.apache.org/install.html) - or use the wrapper .\mvnw instead of mvn
 
 Run:
