@@ -16,7 +16,7 @@ Feature: omada feature
   Scenario: Open Omada Careers page and search for job openings
     Given I Open Omada front page
     When I through the top menu selects Company => Careers
-    And I on Carreers page selects button - search our job openings
+    And I on Carreers page selects button - Job positions
     Then the CandidateHR site loads as expected
 
   @test4

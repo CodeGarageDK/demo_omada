@@ -12,6 +12,9 @@
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="class" />
     <option name="VM_PARAMETERS" value="-ea -Dspring.profiles.active=dev" />
+    <envs>
+      <env name="CUCUMBER_PUBLISH_TOKEN" value="25dc8c57-6dc7-41a9-8c20-336eb78c3f02" />
+    </envs>
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

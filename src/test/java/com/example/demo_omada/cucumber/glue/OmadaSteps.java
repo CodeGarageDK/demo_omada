@@ -2,16 +2,15 @@ package com.example.demo_omada.cucumber.glue;
 
 
 import com.example.demo_omada.webpages.CandidateHR;
-import com.example.demo_omada.webpages.careerspage.CareersPage;
 import com.example.demo_omada.webpages.FrontPage;
 import com.example.demo_omada.webpages.OmadaIdentityCloudPage;
+import com.example.demo_omada.webpages.careerspage.CareersPage;
 import com.example.demo_omada.webpages.careerspage.Omadians;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
@@ -19,10 +18,6 @@ import java.io.IOException;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class OmadaSteps {
-
-
-    @Autowired
-    private WebDriver driver;
 
     @Autowired
     private FrontPage frontPage;
@@ -56,8 +51,6 @@ public class OmadaSteps {
         frontPage.openPage();
     }
 
-
-
     @When("I through the top menu selects Products => Omada Identity Cloud")
     public void iThroughTheTopMenuSelectsProductsOmadaIdentityCloud() {
         frontPage.clickProducts();
@@ -81,9 +74,9 @@ public class OmadaSteps {
         assertThat(omadaIdentityCloudPage.isCompanyHeaderTextInBottomMenyPresent()).isEqualTo(true);
     }
 
-    @And("I on Carreers page selects button - search our job openings")
-    public void iOnCarreersPageSelectsButtonSearchOurJobOpenings() {
-        careersPage.clickSearchJobOpeningsButton();
+    @And("I on Carreers page selects button - Job positions")
+    public void iOnCarreersPageSelectsButtonJobPositions() {
+        careersPage.clickSearchJobPositionsButton();
     }
 
     @Then("the CandidateHR site loads as expected")

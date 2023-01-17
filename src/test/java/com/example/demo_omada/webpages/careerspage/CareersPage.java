@@ -22,8 +22,8 @@ public class CareersPage extends BasicWebPage {
     @Value("${prepath:src/test/resources/validation_texts/}")
     private String pathBegin;
 
-    @FindBy(how = How.CSS, using = "body > section.m-text-image.pt-venti.pb-grande.bg-lightblue1.section-wide > div > div > div.col-xs-12.col-sm-6.col-content > div > p.button-wrapper > a > span")
-    private WebElement searchJobOpeningsButton;
+    @FindBy(how = How.CSS, using = "body > section.m-hero > div.container > div > div > p.button-wrapper > a")
+    private WebElement searchJobPositionsButton;
 
     @FindBy(how = How.CSS, using = "body > section.m-leadership-grid.pt-superventi.pb-superventi.bg-light > div.container > div.row.u-heading-block > div > div > h2")
     private WebElement meetOmadiansHeader;
@@ -39,8 +39,8 @@ public class CareersPage extends BasicWebPage {
         clickClosePerson.click();
     }
 
-    public void clickSearchJobOpeningsButton() {
-        searchJobOpeningsButton.click();
+    public void clickSearchJobPositionsButton() {
+        searchJobPositionsButton.click();
     }
 
     public void clickOmadian(WebElement omadian) throws InterruptedException {

@@ -39,6 +39,7 @@ public class FrontPage extends BasicWebPage {
         driver.manage().window().maximize();
         wait.until(ExpectedConditions.elementToBeClickable(allowCookies));
         allowCookies.click();
+        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(allowCookies)));
     }
 
 
